@@ -1,0 +1,9 @@
+body {
+    background: beige;
+}
+
+button {
+    width: 30%;
+    height: 400px;
+    background-color: rgb(243, 232, 176);
+}
