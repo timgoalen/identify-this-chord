@@ -2,8 +2,24 @@ body {
     background: beige;
 }
 
-button {
+.play-btn-container,
+.answer-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0;
+
+}
+
+#play-btn {
     width: 30%;
     height: 400px;
     background-color: rgb(243, 232, 176);
 }
+
+.answer-btn {
+    width: 10%;
+    height: 100px;
+    background-color: rgb(243, 232, 176);
+}
+
