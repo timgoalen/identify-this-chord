@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     selectAudioForGame(audioArray);
 });
 
-// get elements from html & create an audio object
+// get elements from html
 const playBtn = document.getElementById('play-btn');
-const audio = new Audio();
 
 // from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 const audioArray = [
@@ -16,6 +15,7 @@ const audioArray = [
 ];
 
 let randomAudioArray = [];
+let audioIndex = 0;
 
 // https://github.com/tanisecarvalho/horns-on-fire/blob/main/assets/js/script.js
 function selectAudioForGame() {
@@ -27,7 +27,14 @@ function selectAudioForGame() {
 }
 
 playBtn.addEventListener('click', function () {
-    audio.play();
-    // playNextChord();
-    // playRandomAudio();
+    playAudio(); // (maybe combine with playAudio function)
 })
+
+// mix of these two...from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
+// & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
+function playAudio() {  
+    let audio = new Audio(randomAudioArray[audioIndex]);
+    audioIndex++;
+    audio.load();
+    audio.play();
+  }
