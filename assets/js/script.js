@@ -32,9 +32,9 @@ playBtn.addEventListener('click', function () {
 
 // mix of these two...from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 // & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
-function playAudio() {  
+function playAudio() {
     let audio = new Audio(randomAudioArray[audioIndex]);
     audioIndex++;
-    audio.load();
+    audio.load(); //(maybe not needed)
     audio.play();
-  }
+}

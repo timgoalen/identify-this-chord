@@ -2,13 +2,18 @@ body {
     background: beige;
 }
 
+
+button {
+    border-radius: 10px;
+}
+
 .play-btn-container,
 .answer-btn-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1% 0;
-
+    padding: 0.5% 0;
+    gap: 0.5%;
 }
 
 #play-btn {
