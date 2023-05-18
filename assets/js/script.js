@@ -139,38 +139,38 @@ function checkAnswer() {
         score++;
         if (gameProgress == 1) {
             resultsBlock1.classList.add("correct-answer");
-            resultsBlock1.innerHTML = "<p>:)</p>";
+            resultsBlock1.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
         } else if (gameProgress == 2) {
             resultsBlock2.classList.add("correct-answer");
-            resultsBlock2.innerHTML = "<p>:)</p>";
+            resultsBlock2.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
         } else if (gameProgress == 3) {
             resultsBlock3.classList.add("correct-answer");
-            resultsBlock3.innerHTML = "<p>:)</p>";
+            resultsBlock3.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
         } else if (gameProgress == 4) {
             resultsBlock4.classList.add("correct-answer");
-            resultsBlock4.innerHTML = "<p>:)</p>";
+            resultsBlock4.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
         } else {
             resultsBlock5.classList.add("correct-answer");
-            resultsBlock5.innerHTML = "<p>:)</p>";
+            resultsBlock5.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
             setTimeout(gameOver, 300);
         }
     } else {
         gameProgress++;
         if (gameProgress == 1) {
             resultsBlock1.classList.add("wrong-answer");
-            resultsBlock1.innerHTML = "<p>X</p>";
+            resultsBlock1.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
         } else if (gameProgress == 2) {
             resultsBlock2.classList.add("wrong-answer");
-            resultsBlock2.innerHTML = "<p>X</p>";
+            resultsBlock2.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
         } else if (gameProgress == 3) {
             resultsBlock3.classList.add("wrong-answer");
-            resultsBlock3.innerHTML = "<p>X</p>";
+            resultsBlock3.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
         } else if (gameProgress == 4) {
             resultsBlock4.classList.add("wrong-answer");
-            resultsBlock4.innerHTML = "<p>X</p>";
+            resultsBlock4.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
         } else {
             resultsBlock5.classList.add("wrong-answer");
-            resultsBlock5.innerHTML = "<p>X</p>";
+            resultsBlock5.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
             setTimeout(gameOver, 100);
         }
     }

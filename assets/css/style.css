@@ -2,7 +2,11 @@ body {
     background: beige;
 }
 
-p {
+/* p {
+    text-align: center;
+} */
+
+i {
     text-align: center;
 }
 
