@@ -68,6 +68,7 @@ answerBtn3.addEventListener('click', answer3);
 answerBtn4.addEventListener('click', answer4);
 answerBtn5.addEventListener('click', answer5);
 
+let resultBlocks = document.getElementById("result-blocks");
 
 function answer1() {
     returnedAnswer = "answer is 1";
@@ -101,9 +102,16 @@ function answer5() {
 
 function checkAnswer() {
     if (returnedAnswer == randomAudioArray[audioIndex].answer) {
+        resultBlocks.classList.add("correct-answer");
         alert("CORRECT!");
     } else {
+        resultBlocks.classList.add("wrong-answer");
         alert("INCORRECT!");
     }
 }
+
+// function correctAnswer() {
+//     let element = document.getElementsByClassName("results-block-container");
+//     element.classList.add("correct-answer");
+// }
 
