@@ -37,6 +37,17 @@ function startGame() {
     score = 0;
     // Choose audio
     selectAudioForGame(audioArray);
+    // Reset score colours
+    resultsBlock1.classList.remove("correct-answer", "wrong-answer");
+    resultsBlock2.classList.remove("correct-answer", "wrong-answer");
+    resultsBlock3.classList.remove("correct-answer", "wrong-answer");
+    resultsBlock4.classList.remove("correct-answer", "wrong-answer");
+    resultsBlock5.classList.remove("correct-answer", "wrong-answer");
+    resultsBlock1.innerHTML = "";
+    resultsBlock2.innerHTML = "";
+    resultsBlock3.innerHTML = "";
+    resultsBlock4.innerHTML = "";
+    resultsBlock5.innerHTML = "";
 }
 
 //Array of objects, with audio files and corresponding correct answers
@@ -160,11 +171,39 @@ function checkAnswer() {
         } else {
             resultsBlock5.classList.add("wrong-answer");
             resultsBlock5.innerHTML = "<p>X</p>";
-            setTimeout(gameOver, 300);
+            setTimeout(gameOver, 100);
         }
     }
 }
 
+// Game over
+
+gameOverTextResult = "";
+
 function gameOver() {
-    alert(`You've finished the game! You're score is ${score}/5`);
+    if (score == 5) {
+        gameOverTextResult = "Perfect!";
+    } else if (score == 4) {
+        gameOverTextResult = "Excellent!";
+    } else if (score == 3) {
+        gameOverTextResult = "Well done!";
+    } else if (score == 2) {
+        gameOverTextResult = "Nice try!";
+    } else {
+        gameOverTextResult = "Unlucky!";
+    }
+
+    Swal.fire({
+        title: gameOverTextResult,
+        text: `You scored ${score}/5`,
+        icon: 'success',
+        // showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        // cancelButtonColor: '#d33',
+        confirmButtonText: 'Play again!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            startGame();
+        }
+    });
 }
