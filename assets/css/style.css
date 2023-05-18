@@ -2,6 +2,9 @@ body {
     background: beige;
 }
 
+p {
+    text-align: center;
+}
 
 /* button {
     border-radius: 10px;
@@ -22,6 +25,8 @@ body {
     height: 40vh;
     background-color: rgb(243, 232, 176);
     border-radius: 10px;
+    font-size: 2rem;
+
 }
 
 .answer-btn,
@@ -30,6 +35,7 @@ body {
     height: 100px;
     background-color: rgb(243, 232, 176);
     border-radius: 10px;
+    font-size: 2rem;
 }
 
 .correct-answer {

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     selectAudioForGame(audioArray);
 });
 
-// get elements from html
+// Get elements from html
 const playBtn = document.getElementById('play-btn');
 
 const answerBtn1 = document.getElementById('answer-btn-1');
@@ -10,6 +10,20 @@ const answerBtn2 = document.getElementById('answer-btn-2');
 const answerBtn3 = document.getElementById('answer-btn-3');
 const answerBtn4 = document.getElementById('answer-btn-4');
 const answerBtn5 = document.getElementById('answer-btn-5');
+
+const resultsBlock1 = document.getElementById("results-block-1")
+const resultsBlock2 = document.getElementById("results-block-2")
+const resultsBlock3 = document.getElementById("results-block-3")
+const resultsBlock4 = document.getElementById("results-block-4")
+const resultsBlock5 = document.getElementById("results-block-5")
+
+// Variables
+
+let randomAudioArray = [];
+let audioIndex = 0;
+let submittedAnswer = "";
+let gameProgress = 0;
+let score = 0;
 
 // from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 const audioArray = [{
@@ -34,9 +48,6 @@ const audioArray = [{
     },
 ];
 
-let randomAudioArray = [];
-let audioIndex = 0;
-
 // https://github.com/tanisecarvalho/horns-on-fire/blob/main/assets/js/script.js
 function selectAudioForGame() {
     let safeArrayCopy = audioArray.slice();
@@ -59,8 +70,6 @@ function playAudio() {
     audio.play();
 }
 
-let returnedAnswer = "";
-
 // WIP of getting answers
 answerBtn1.addEventListener('click', answer1);
 answerBtn2.addEventListener('click', answer2);
@@ -68,50 +77,79 @@ answerBtn3.addEventListener('click', answer3);
 answerBtn4.addEventListener('click', answer4);
 answerBtn5.addEventListener('click', answer5);
 
-let resultBlocks = document.getElementById("result-blocks");
-
 function answer1() {
-    returnedAnswer = "answer is 1";
+    submittedAnswer = "answer is 1";
     checkAnswer();
     audioIndex++;
 }
 
 function answer2() {
-    returnedAnswer = "answer is 2";
+    submittedAnswer = "answer is 2";
     checkAnswer();
     audioIndex++;
 }
 
 function answer3() {
-    returnedAnswer = "answer is 3";
+    submittedAnswer = "answer is 3";
     checkAnswer();
     audioIndex++;
 }
 
 function answer4() {
-    returnedAnswer = "answer is 4";
+    submittedAnswer = "answer is 4";
     checkAnswer();
     audioIndex++;
 }
 
 function answer5() {
-    returnedAnswer = "answer is 5";
+    submittedAnswer = "answer is 5";
     checkAnswer();
     audioIndex++;
 }
 
 function checkAnswer() {
-    if (returnedAnswer == randomAudioArray[audioIndex].answer) {
-        resultBlocks.classList.add("correct-answer");
-        alert("CORRECT!");
+    if (submittedAnswer == randomAudioArray[audioIndex].answer) {
+        gameProgress++;
+        score++;
+        if (gameProgress == 1) {
+            resultsBlock1.classList.add("correct-answer");
+            resultsBlock1.innerHTML = "<p>:)</p>";
+        } else if (gameProgress == 2) {
+            resultsBlock2.classList.add("correct-answer");
+            resultsBlock2.innerHTML = "<p>:)</p>";
+        } else if (gameProgress == 3) {
+            resultsBlock3.classList.add("correct-answer");
+            resultsBlock3.innerHTML = "<p>:)</p>";
+        } else if (gameProgress == 4) {
+            resultsBlock4.classList.add("correct-answer");
+            resultsBlock4.innerHTML = "<p>:)</p>";
+        } else {
+            resultsBlock5.classList.add("correct-answer");
+            resultsBlock5.innerHTML = "<p>:)</p>";
+            setTimeout(gameOver, 300);
+        }
     } else {
-        resultBlocks.classList.add("wrong-answer");
-        alert("INCORRECT!");
+        gameProgress++;
+        if (gameProgress == 1) {
+            resultsBlock1.classList.add("wrong-answer");
+            resultsBlock1.innerHTML = "<p>X</p>";
+        } else if (gameProgress == 2) {
+            resultsBlock2.classList.add("wrong-answer");
+            resultsBlock2.innerHTML = "<p>X</p>";
+        } else if (gameProgress == 3) {
+            resultsBlock3.classList.add("wrong-answer");
+            resultsBlock3.innerHTML = "<p>X</p>";
+        } else if (gameProgress == 4) {
+            resultsBlock4.classList.add("wrong-answer");
+            resultsBlock4.innerHTML = "<p>X</p>";
+        } else {
+            resultsBlock5.classList.add("wrong-answer");
+            resultsBlock5.innerHTML = "<p>X</p>";
+            setTimeout(gameOver, 300);
+        }
     }
 }
 
-// function correctAnswer() {
-//     let element = document.getElementsByClassName("results-block-container");
-//     element.classList.add("correct-answer");
-// }
-
+function gameOver() {
+    alert(`You've finished the game! You're score is ${score}/5`);
+}
