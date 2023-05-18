@@ -3,12 +3,13 @@ body {
 }
 
 
-button {
+/* button {
     border-radius: 10px;
-}
+} */
 
 .play-btn-container,
-.answer-btn-container {
+.answer-btn-container,
+.results-block-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,14 +18,17 @@ button {
 }
 
 #play-btn {
-    width: 30%;
-    height: 400px;
+    width: 52%;
+    height: 40vh;
     background-color: rgb(243, 232, 176);
+    border-radius: 10px;
 }
 
-.answer-btn {
+.answer-btn,
+.results-squares {
     width: 10%;
     height: 100px;
     background-color: rgb(243, 232, 176);
+    border-radius: 10px;
 }
 
