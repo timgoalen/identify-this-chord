@@ -54,7 +54,7 @@ playBtn.addEventListener('click', function () {
 // & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
 function playAudio() {
     let audio = new Audio(randomAudioArray[audioIndex].question);
-    audioIndex++;
+    // audioIndex++;
     audio.load(); //(maybe not needed)
     audio.play();
 }
@@ -62,33 +62,42 @@ function playAudio() {
 let returnedAnswer = "";
 
 // WIP of getting answers
-answerBtn1.addEventListener('click', returnedAnswer = "answer is 1");
+answerBtn1.addEventListener('click', answer1);
 answerBtn2.addEventListener('click', answer2);
 answerBtn3.addEventListener('click', answer3);
 answerBtn4.addEventListener('click', answer4);
 answerBtn5.addEventListener('click', answer5);
 
 
-// function answer1() {
-//     returnedAnswer = "answer is 1";
-// }
+function answer1() {
+    returnedAnswer = "answer is 1";
+    checkAnswer();
+    audioIndex++;
+}
 
 function answer2() {
     returnedAnswer = "answer is 2";
     checkAnswer();
+    audioIndex++;
 }
 
-// function answer3() {
-//     returnedAnswer = "answer is 3";
-// }
+function answer3() {
+    returnedAnswer = "answer is 3";
+    checkAnswer();
+    audioIndex++;
+}
 
-// function answer4() {
-//     returnedAnswer = "answer is 4";
-// }
+function answer4() {
+    returnedAnswer = "answer is 4";
+    checkAnswer();
+    audioIndex++;
+}
 
-// function answer5() {
-//     returnedAnswer = "answer is 5";
-// }
+function answer5() {
+    returnedAnswer = "answer is 5";
+    checkAnswer();
+    audioIndex++;
+}
 
 function checkAnswer() {
     if (returnedAnswer == randomAudioArray[audioIndex].answer) {
