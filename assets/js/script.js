@@ -1,8 +1,9 @@
+// Load game on page load
 document.addEventListener("DOMContentLoaded", function () {
-    selectAudioForGame(audioArray);
+    startGame();
 });
 
-// Get elements from html
+// Get elements from index.html
 const playBtn = document.getElementById('play-btn');
 
 const answerBtn1 = document.getElementById('answer-btn-1');
@@ -17,7 +18,7 @@ const resultsBlock3 = document.getElementById("results-block-3")
 const resultsBlock4 = document.getElementById("results-block-4")
 const resultsBlock5 = document.getElementById("results-block-5")
 
-// Variables
+// Variables ('game state')
 
 let randomAudioArray = [];
 let audioIndex = 0;
@@ -25,6 +26,20 @@ let submittedAnswer = "";
 let gameProgress = 0;
 let score = 0;
 
+// Start game
+
+function startGame() {
+    // Variables re-set
+    randomAudioArray = [];
+    audioIndex = 0;
+    submittedAnswer = "";
+    gameProgress = 0;
+    score = 0;
+    // Choose audio
+    selectAudioForGame(audioArray);
+}
+
+//Array of objects, with audio files and corresponding correct answers
 // from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 const audioArray = [{
         question: "assets/audio/pp2-audio-test1.mp3",
