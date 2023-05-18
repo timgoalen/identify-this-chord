@@ -12,8 +12,7 @@ const answerBtn4 = document.getElementById('answer-btn-4');
 const answerBtn5 = document.getElementById('answer-btn-5');
 
 // from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
-const audioArray = [
-    {
+const audioArray = [{
         question: "assets/audio/pp2-audio-test1.mp3",
         answer: "answer is 1"
     },
@@ -60,30 +59,42 @@ function playAudio() {
     audio.play();
 }
 
+let returnedAnswer = "";
 
 // WIP of getting answers
-answerBtn1.addEventListener('click', answer1);
+answerBtn1.addEventListener('click', returnedAnswer = "answer is 1");
 answerBtn2.addEventListener('click', answer2);
 answerBtn3.addEventListener('click', answer3);
 answerBtn4.addEventListener('click', answer4);
 answerBtn5.addEventListener('click', answer5);
 
-function answer1() {
-    alert("answer is 1");
-}
+
+// function answer1() {
+//     returnedAnswer = "answer is 1";
+// }
 
 function answer2() {
-    alert("answer is 2");
+    returnedAnswer = "answer is 2";
+    checkAnswer();
 }
 
-function answer3() {
-    alert("answer is 3");
+// function answer3() {
+//     returnedAnswer = "answer is 3";
+// }
+
+// function answer4() {
+//     returnedAnswer = "answer is 4";
+// }
+
+// function answer5() {
+//     returnedAnswer = "answer is 5";
+// }
+
+function checkAnswer() {
+    if (returnedAnswer == randomAudioArray[audioIndex].answer) {
+        alert("CORRECT!");
+    } else {
+        alert("INCORRECT!");
+    }
 }
 
-function answer4() {
-    alert("answer is 4");
-}
-
-function answer5() {
-    alert("answer is 5");
-}
