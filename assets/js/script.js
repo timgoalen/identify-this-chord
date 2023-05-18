@@ -13,11 +13,26 @@ const answerBtn5 = document.getElementById('answer-btn-5');
 
 // from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 const audioArray = [
-    "assets/audio/pp2-audio-test1.mp3",
-    "assets/audio/pp2-audio-test2.mp3",
-    "assets/audio/pp2-audio-test3.mp3",
-    "assets/audio/pp2-audio-test4.mp3",
-    "assets/audio/pp2-audio-test5.mp3"
+    {
+        question: "assets/audio/pp2-audio-test1.mp3",
+        answer: "answer is 1"
+    },
+    {
+        question: "assets/audio/pp2-audio-test2.mp3",
+        answer: "answer is 2"
+    },
+    {
+        question: "assets/audio/pp2-audio-test3.mp3",
+        answer: "answer is 3"
+    },
+    {
+        question: "assets/audio/pp2-audio-test4.mp3",
+        answer: "answer is 4"
+    },
+    {
+        question: "assets/audio/pp2-audio-test5.mp3",
+        answer: "answer is 5"
+    },
 ];
 
 let randomAudioArray = [];
@@ -39,7 +54,7 @@ playBtn.addEventListener('click', function () {
 // mix of these two...from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 // & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
 function playAudio() {
-    let audio = new Audio(randomAudioArray[audioIndex]);
+    let audio = new Audio(randomAudioArray[audioIndex].question);
     audioIndex++;
     audio.load(); //(maybe not needed)
     audio.play();
@@ -54,21 +69,21 @@ answerBtn4.addEventListener('click', answer4);
 answerBtn5.addEventListener('click', answer5);
 
 function answer1() {
-    alert("you answered 1");
+    alert("answer is 1");
 }
 
 function answer2() {
-    alert("you answered 2");
+    alert("answer is 2");
 }
 
 function answer3() {
-    alert("you answered 3");
+    alert("answer is 3");
 }
 
 function answer4() {
-    alert("you answered 4");
+    alert("answer is 4");
 }
 
 function answer5() {
-    alert("you answered 5");
+    alert("answer is 5");
 }
