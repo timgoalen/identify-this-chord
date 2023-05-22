@@ -102,7 +102,6 @@ playBtn.addEventListener('click', function () {
 // & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
 function playAudio() {
     let audio = new Audio(randomAudioArray[audioIndex].question);
-    // audioIndex++;
     audio.load(); //(maybe not needed)
     audio.play();
 }
@@ -170,7 +169,7 @@ function answer5() {
 }
 
 function checkAnswer() {
-    if (submittedAnswer == randomAudioArray[audioIndex].answer) {
+    if (submittedAnswer === randomAudioArray[audioIndex].answer) {
         gameProgress++;
         score++;
         if (gameProgress == 1) {
@@ -214,7 +213,7 @@ function checkAnswer() {
 
 // Game over
 
-gameOverTextResult = "";
+let gameOverTextResult = "";
 
 function gameOver() {
     if (score == 5) {
