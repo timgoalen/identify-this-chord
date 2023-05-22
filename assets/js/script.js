@@ -48,6 +48,12 @@ function startGame() {
     resultsBlock3.innerHTML = "";
     resultsBlock4.innerHTML = "";
     resultsBlock5.innerHTML = "";
+    // Disable answer buttons until 'Play' has been clicked on
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
+    answerBtn5.disabled = true;
 }
 
 //Array of objects, with audio files and corresponding correct answers
@@ -85,6 +91,11 @@ function selectAudioForGame() {
 
 playBtn.addEventListener('click', function () {
     playAudio(); // (maybe combine with playAudio function)
+    answerBtn1.disabled = false;
+    answerBtn2.disabled = false;
+    answerBtn3.disabled = false;
+    answerBtn4.disabled = false;
+    answerBtn5.disabled = false;
 })
 
 // mix of these two...from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
@@ -104,30 +115,55 @@ answerBtn4.addEventListener('click', answer4);
 answerBtn5.addEventListener('click', answer5);
 
 function answer1() {
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
+    answerBtn5.disabled = true;
     submittedAnswer = "answer is 1";
     checkAnswer();
     audioIndex++;
 }
 
 function answer2() {
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
+    answerBtn5.disabled = true;
     submittedAnswer = "answer is 2";
     checkAnswer();
     audioIndex++;
 }
 
 function answer3() {
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
+    answerBtn5.disabled = true;
     submittedAnswer = "answer is 3";
     checkAnswer();
     audioIndex++;
 }
 
 function answer4() {
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
+    answerBtn5.disabled = true;
     submittedAnswer = "answer is 4";
     checkAnswer();
     audioIndex++;
 }
 
 function answer5() {
+    answerBtn1.disabled = true;
+    answerBtn2.disabled = true;
+    answerBtn3.disabled = true;
+    answerBtn4.disabled = true;
+    answerBtn5.disabled = true;
     submittedAnswer = "answer is 5";
     checkAnswer();
     audioIndex++;
