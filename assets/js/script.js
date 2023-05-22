@@ -233,9 +233,7 @@ function gameOver() {
         title: gameOverTextResult,
         text: `You scored ${score}/5`,
         icon: 'success',
-        // showCancelButton: true,
         confirmButtonColor: '#3085d6',
-        // cancelButtonColor: '#d33',
         confirmButtonText: 'Play again!'
     }).then((result) => {
         if (result.isConfirmed) {
