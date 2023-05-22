@@ -1,13 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 1px solid red;
+}
+
 body {
-    background: beige;
+    font-family: 'Courier New', Courier, monospace;
+    width: 97%;
+    padding: 2%;
+}
+
+header,
+footer {
+    height: 5dvh;
+}
+
+main {
+    height: 80dvh;
 }
 
 h1, h2 {
     text-align: center;
 }
 
+h1 {
+    font-size: 8vw;
+}
+
 i {
-    text-align: center;
+    /* text-align: center; */
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .play-btn-container,
@@ -21,28 +47,27 @@ i {
 }
 
 #play-btn {
-    width: 52%;
+    width: 100%;
     height: 40vh;
-    background-color: rgb(243, 232, 176);
+    /* background-color: rgb(243, 232, 176); */
     border-radius: 10px;
-    font-size: 2rem;
-
+    font-size: 7vw;
 }
 
 .answer-btn,
 .results-squares {
-    width: 10%;
+    width: 20%;
     height: 100px;
-    background-color: rgb(243, 232, 176);
+    background-color: #EBEBEB;
     border-radius: 10px;
-    font-size: 2rem;
+    font-size: 5vw;
 }
 
 .correct-answer {
-    background-color: green;
+    /* background-color: green; */
 }
 
 .wrong-answer {
-    background-color: red;
+    /* background-color: red; */
 }
 
