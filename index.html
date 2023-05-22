@@ -5,38 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PP2 Testing</title>
+    <meta name="description" content="A chord identification quiz">
+    <meta name="keywords" content="music, chord, identification, quiz, game">
+    <!-- link to external css file -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Sweet Alert import -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Identify This Chord</title>
 </head>
 
 <body>
 
-    <div class="results-block-container">
-        <div class="results-squares" id="results-block-1"></div>
-        <div class="results-squares" id="results-block-2"></div>
-        <div class="results-squares" id="results-block-3"></div>
-        <div class="results-squares" id="results-block-4"></div>
-        <div class="results-squares" id="results-block-5"></div>
-    </div>
+    <header>
+        <h1>Identify This Chord</h1>
+    </header>
 
-    <div class="play-btn-container">
-        <button id="play-btn">Play Sound</button>
-    </div>
+    <main>
+        <section>
+            <h2>A Music Quiz Game</h2>
+            <div class="results-block-container">
+                <div class="results-squares" id="results-block-1"></div>
+                <div class="results-squares" id="results-block-2"></div>
+                <div class="results-squares" id="results-block-3"></div>
+                <div class="results-squares" id="results-block-4"></div>
+                <div class="results-squares" id="results-block-5"></div>
+            </div>
+            <div class="play-btn-container">
+                <button id="play-btn">Play Chord</button>
+            </div>
+            <div class="answer-btn-container">
+                <button id="answer-btn-1" class="answer-btn">1</button>
+                <button id="answer-btn-2" class="answer-btn">2</button>
+                <button id="answer-btn-3" class="answer-btn">3</button>
+                <button id="answer-btn-4" class="answer-btn">4</button>
+                <button id="answer-btn-5" class="answer-btn">5</button>
+            </div>
+        </section>
+    </main>
 
-    <div class="answer-btn-container">
-        <button id="answer-btn-1" class="answer-btn">1</button>
-        <button id="answer-btn-2" class="answer-btn">2</button>
-        <button id="answer-btn-3" class="answer-btn">3</button>
-        <button id="answer-btn-4" class="answer-btn">4</button>
-        <button id="answer-btn-5" class="answer-btn">5</button>
-    </div>
+    <footer>
+        <a href="https://github.com/timgoalen" target="_blank" rel="noopener"
+            aria-label="Visit the developer's GitHub page (opens in a new tab)"><i class="fa-brands fa-github"></i></a>
+    </footer>
 
     <!-- link to external js file -->
     <script src="assets/js/script.js"></script>
-    <!-- font awesome script -->
+    <!-- Font Awesome script -->
     <script src="https://kit.fontawesome.com/1898f2e833.js" crossorigin="anonymous"></script>
 </body>
+
+
 
 </html>

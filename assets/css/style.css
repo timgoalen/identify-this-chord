@@ -2,17 +2,13 @@ body {
     background: beige;
 }
 
-/* p {
+h1, h2 {
     text-align: center;
-} */
+}
 
 i {
     text-align: center;
 }
-
-/* button {
-    border-radius: 10px;
-} */
 
 .play-btn-container,
 .answer-btn-container,
