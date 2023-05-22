@@ -12,11 +12,11 @@ const answerBtn3 = document.getElementById('answer-btn-3');
 const answerBtn4 = document.getElementById('answer-btn-4');
 const answerBtn5 = document.getElementById('answer-btn-5');
 
-const resultsBlock1 = document.getElementById("results-block-1")
-const resultsBlock2 = document.getElementById("results-block-2")
-const resultsBlock3 = document.getElementById("results-block-3")
-const resultsBlock4 = document.getElementById("results-block-4")
-const resultsBlock5 = document.getElementById("results-block-5")
+const resultsBlock1 = document.getElementById("results-block-1");
+const resultsBlock2 = document.getElementById("results-block-2");
+const resultsBlock3 = document.getElementById("results-block-3");
+const resultsBlock4 = document.getElementById("results-block-4");
+const resultsBlock5 = document.getElementById("results-block-5");
 
 // Variables ('game state')
 
@@ -96,7 +96,7 @@ playBtn.addEventListener('click', function () {
     answerBtn3.disabled = false;
     answerBtn4.disabled = false;
     answerBtn5.disabled = false;
-})
+});
 
 // mix of these two...from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 // & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
