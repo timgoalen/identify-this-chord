@@ -43,12 +43,12 @@ h2 {
     padding-bottom: 5%;
 }
 
-i {
-    /* text-align: center; */
-}
-
 button {
     font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover:not([disabled]) {
+    border: 2px solid #fa8d62;
 }
 
 .play-btn-container,
