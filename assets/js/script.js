@@ -4,13 +4,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Get elements from index.html
+
 const playBtn = document.getElementById('play-btn');
+
+const answerButtons = document.getElementsByClassName('answer-btn');
 
 const answerBtn1 = document.getElementById('answer-btn-1');
 const answerBtn2 = document.getElementById('answer-btn-2');
 const answerBtn3 = document.getElementById('answer-btn-3');
 const answerBtn4 = document.getElementById('answer-btn-4');
 const answerBtn5 = document.getElementById('answer-btn-5');
+
+const resultsSquares = document.getElementsByClassName('results-squares');
 
 const resultsBlock1 = document.getElementById("results-block-1");
 const resultsBlock2 = document.getElementById("results-block-2");
@@ -29,7 +34,7 @@ let score = 0;
 // Start game
 
 function startGame() {
-    // Variables re-set
+    // Reset variables
     randomAudioArray = [];
     audioIndex = 0;
     submittedAnswer = "";
@@ -37,46 +42,36 @@ function startGame() {
     score = 0;
     // Choose audio
     selectAudioForGame(audioArray);
-    // Reset score colours
-    resultsBlock1.classList.remove("correct-answer", "wrong-answer");
-    resultsBlock2.classList.remove("correct-answer", "wrong-answer");
-    resultsBlock3.classList.remove("correct-answer", "wrong-answer");
-    resultsBlock4.classList.remove("correct-answer", "wrong-answer");
-    resultsBlock5.classList.remove("correct-answer", "wrong-answer");
-    resultsBlock1.innerHTML = "";
-    resultsBlock2.innerHTML = "";
-    resultsBlock3.innerHTML = "";
-    resultsBlock4.innerHTML = "";
-    resultsBlock5.innerHTML = "";
-    // Disable answer buttons until 'Play' has been clicked on
-    answerBtn1.disabled = true;
-    answerBtn2.disabled = true;
-    answerBtn3.disabled = true;
-    answerBtn4.disabled = true;
-    answerBtn5.disabled = true;
+    // Reset result blocks colours and icons
+    for (let square of resultsSquares) {
+        square.classList.remove("correct-answer", "wrong-answer");
+        square.innerHTML = "";
+    }
+    // Disable answer buttons (until 'Play Chord' has been clicked on)
+    disableAnswerButtons();
 }
 
 //Array of objects, with audio files and corresponding correct answers
 // from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 const audioArray = [{
         question: "assets/audio/audio-q-maj.mp3",
-        answer: "answer is major"
+        answer: "major"
     },
     {
         question: "assets/audio/audio-q-min.mp3",
-        answer: "answer is minor"
+        answer: "minor"
     },
     {
         question: "assets/audio/audio-q-dom7.mp3",
-        answer: "answer is dom7"
+        answer: "dom7"
     },
     {
         question: "assets/audio/audio-q-maj7.mp3",
-        answer: "answer is maj7"
+        answer: "maj7"
     },
     {
         question: "assets/audio/audio-q-min7.mp3",
-        answer: "answer is min7"
+        answer: "min7"
     },
 ];
 
@@ -90,124 +85,67 @@ function selectAudioForGame() {
 }
 
 playBtn.addEventListener('click', function () {
-    playAudio(); // (maybe combine with playAudio function)
-    answerBtn1.disabled = false;
-    answerBtn2.disabled = false;
-    answerBtn3.disabled = false;
-    answerBtn4.disabled = false;
-    answerBtn5.disabled = false;
+    playAudio();
 });
 
 // mix of these two...from https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
 // & https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
-// this creates new audio for each file, playing over each other, for a smoother sound experience
 function playAudio() {
+    // disables answer buttons
+    for (let button of answerButtons) {
+        button.disabled = false;
+    }
+    // creates and plays a new audio object (playing over each other, for a smoother sound experience)
     let audio = new Audio(randomAudioArray[audioIndex].question);
     audio.play();
 }
 
-// WIP of getting answers
-answerBtn1.addEventListener('click', answer1);
-answerBtn2.addEventListener('click', answer2);
-answerBtn3.addEventListener('click', answer3);
-answerBtn4.addEventListener('click', answer4);
-answerBtn5.addEventListener('click', answer5);
+function disableAnswerButtons() {
+    for (let answerButton of answerButtons) {
+        answerButton.disabled = true;
+    }
+}
 
-function answer1() {
-    answerBtn1.disabled = true;
-    answerBtn2.disabled = true;
-    answerBtn3.disabled = true;
-    answerBtn4.disabled = true;
-    answerBtn5.disabled = true;
-    submittedAnswer = "answer is major";
+function enableAnswerButtons() {
+    for (let answerButton of answerButtons) {
+        answerButton.disabled = false;
+    }
+}
+
+// Retreive user answer
+
+for (let answerButton of answerButtons) {
+    answerButton.addEventListener('click', function () {
+        submittedAnswer = answerButton.dataset.id;
+        submitAnswer();
+    })
+}
+
+// Submit user answer
+
+function submitAnswer() {
     checkAnswer();
+    disableAnswerButtons();
     audioIndex++;
 }
 
-function answer2() {
-    answerBtn1.disabled = true;
-    answerBtn2.disabled = true;
-    answerBtn3.disabled = true;
-    answerBtn4.disabled = true;
-    answerBtn5.disabled = true;
-    submittedAnswer = "answer is minor";
-    checkAnswer();
-    audioIndex++;
-}
-
-function answer3() {
-    answerBtn1.disabled = true;
-    answerBtn2.disabled = true;
-    answerBtn3.disabled = true;
-    answerBtn4.disabled = true;
-    answerBtn5.disabled = true;
-    submittedAnswer = "answer is dom7";
-    checkAnswer();
-    audioIndex++;
-}
-
-function answer4() {
-    answerBtn1.disabled = true;
-    answerBtn2.disabled = true;
-    answerBtn3.disabled = true;
-    answerBtn4.disabled = true;
-    answerBtn5.disabled = true;
-    submittedAnswer = "answer is maj7";
-    checkAnswer();
-    audioIndex++;
-}
-
-function answer5() {
-    answerBtn1.disabled = true;
-    answerBtn2.disabled = true;
-    answerBtn3.disabled = true;
-    answerBtn4.disabled = true;
-    answerBtn5.disabled = true;
-    submittedAnswer = "answer is min7";
-    checkAnswer();
-    audioIndex++;
-}
+// Check user answer and advance game
 
 function checkAnswer() {
+    gameProgress++;
+    // Correct answer
     if (submittedAnswer === randomAudioArray[audioIndex].answer) {
-        gameProgress++;
         score++;
-        if (gameProgress == 1) {
-            resultsBlock1.classList.add("correct-answer");
-            resultsBlock1.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
-        } else if (gameProgress == 2) {
-            resultsBlock2.classList.add("correct-answer");
-            resultsBlock2.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
-        } else if (gameProgress == 3) {
-            resultsBlock3.classList.add("correct-answer");
-            resultsBlock3.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
-        } else if (gameProgress == 4) {
-            resultsBlock4.classList.add("correct-answer");
-            resultsBlock4.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
-        } else {
-            resultsBlock5.classList.add("correct-answer");
-            resultsBlock5.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
-            setTimeout(gameOver, 300);
-        }
+        resultsSquares[gameProgress - 1].classList.add("correct-answer"); // '-1' is used because the array starts at '0'
+        resultsSquares[gameProgress - 1].innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
+    // Wrong answer
     } else {
-        gameProgress++;
-        if (gameProgress == 1) {
-            resultsBlock1.classList.add("wrong-answer");
-            resultsBlock1.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
-        } else if (gameProgress == 2) {
-            resultsBlock2.classList.add("wrong-answer");
-            resultsBlock2.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
-        } else if (gameProgress == 3) {
-            resultsBlock3.classList.add("wrong-answer");
-            resultsBlock3.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
-        } else if (gameProgress == 4) {
-            resultsBlock4.classList.add("wrong-answer");
-            resultsBlock4.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
-        } else {
-            resultsBlock5.classList.add("wrong-answer");
-            resultsBlock5.innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
-            setTimeout(gameOver, 100);
-        }
+        resultsSquares[gameProgress - 1].classList.add("wrong-answer"); // '-1' is used because the array starts at '0'
+        resultsSquares[gameProgress - 1].innerHTML = `<i class="fa-solid fa-heart-crack fa-xl"></i>`;
+    }
+    // Run gameOver function after 5 rounds
+    if (gameProgress === 5) {
+        setTimeout(gameOver, 200);
     }
 }
 
