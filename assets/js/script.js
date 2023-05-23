@@ -9,19 +9,7 @@ const playBtn = document.getElementById('play-btn');
 
 const answerButtons = document.getElementsByClassName('answer-btn');
 
-const answerBtn1 = document.getElementById('answer-btn-1');
-const answerBtn2 = document.getElementById('answer-btn-2');
-const answerBtn3 = document.getElementById('answer-btn-3');
-const answerBtn4 = document.getElementById('answer-btn-4');
-const answerBtn5 = document.getElementById('answer-btn-5');
-
 const resultsSquares = document.getElementsByClassName('results-squares');
-
-const resultsBlock1 = document.getElementById("results-block-1");
-const resultsBlock2 = document.getElementById("results-block-2");
-const resultsBlock3 = document.getElementById("results-block-3");
-const resultsBlock4 = document.getElementById("results-block-4");
-const resultsBlock5 = document.getElementById("results-block-5");
 
 // Variables ('game state')
 
