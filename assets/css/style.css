@@ -1,3 +1,5 @@
+/* || General styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +12,6 @@ body {
     padding: 2%;
 }
 
-footer {
-    height: 5dvh;
-}
-
 main {
     height: 88dvh;
     margin: auto;
@@ -22,6 +20,16 @@ main {
 section {
     height: 100%;
 }
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover:not([disabled]) {
+    border: 2px solid #fa8d62;
+}
+
+/* || Typography */
 
 h1,
 h2 {
@@ -38,13 +46,7 @@ h2 {
     padding-bottom: 5%;
 }
 
-button {
-    font-family: 'Courier New', Courier, monospace;
-}
-
-button:hover:not([disabled]) {
-    border: 2px solid #fa8d62;
-}
+/* || Game area styles */
 
 .play-btn-container,
 .answer-btn-container,
@@ -54,16 +56,6 @@ button:hover:not([disabled]) {
     align-items: center;
     padding: 0.5% 0;
     gap: 0.5%;
-
-}
-
-#play-btn {
-    width: 100%;
-    height: 35dvh;
-    border-radius: 10px;
-    font-size: clamp(1rem, 7.5dvw, 2.7rem);
-    background-color: #cdf6ff;
-
 }
 
 .answer-btn,
@@ -91,7 +83,18 @@ button:hover:not([disabled]) {
     background-color: #fa8d62;
 }
 
+#play-btn {
+    width: 100%;
+    height: 35dvh;
+    border-radius: 10px;
+    font-size: clamp(1rem, 7.5dvw, 2.7rem);
+    background-color: #cdf6ff;
+}
+
+/* || Footer */
+
 footer {
+    height: 5dvh;
     padding: 1.5% 0;
 }
 
@@ -103,7 +106,8 @@ footer {
     color: #000;
 }
 
-/* Media queries */
+/* || Media queries */
+
 @media screen and (min-width: 862px) {
     main {
         width: 75%;
