@@ -1,4 +1,4 @@
-// GLOBAL CONSTANTS 
+// GLOBAL CONSTANTS
 
 // The array that holds the quiz questions (audio) and answers
 const audioArray = [{
@@ -24,9 +24,9 @@ const audioArray = [{
 ];
 
 // Get elements from index.html
-const playBtn = document.getElementById('play-btn');
-const answerButtons = document.getElementsByClassName('answer-btn');
-const resultsSquares = document.getElementsByClassName('results-squares');
+const playBtn = document.getElementById("play-btn");
+const answerButtons = document.getElementsByClassName("answer-btn");
+const resultsSquares = document.getElementsByClassName("results-squares");
 
 // GLOBAL VARIABLES
 
@@ -45,13 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Plays audio file on click
-playBtn.addEventListener('click', function () {
+playBtn.addEventListener("click", function () {
     playAudio();
 });
 
 // Retreives user answer
 for (let answerButton of answerButtons) {
-    answerButton.addEventListener('click', function () {
+    answerButton.addEventListener("click", function () {
         submittedAnswer = answerButton.dataset.id;
         submitAnswer();
     })
@@ -80,7 +80,6 @@ function startGame() {
     disableAnswerButtons();
 }
 
-
 /**
  * Creates a random non-repeating array from the main audioArray.
  * Inspired by: https://github.com/tanisecarvalho/horns-on-fire/blob/main/assets/js/script.js
@@ -95,7 +94,7 @@ function selectAudioForGame() {
 
 /**
  * Creates and plays a new audio object.
- * Inspired by: https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript 
+ * Inspired by: https://palettes.shecodes.io/athena/26906-how-to-play-a-random-audio-from-an-array-in-javascript
  * and https://stackoverflow.com/questions/52486241/show-array-increment-one-by-one-elements-upon-onclick-function
  */
 function playAudio() {
@@ -126,7 +125,7 @@ function submitAnswer() {
 }
 
 /**
- * Checks user answer againt correct answer, modifies the results blocks to show score, and increments the gameProgess. 
+ * Checks user answer against correct answer, modifies the results blocks to show score, and increments the gameProgess. 
  */
 function checkAnswer() {
     gameProgress++;
@@ -147,7 +146,7 @@ function checkAnswer() {
 }
 
 /**
- * Ends game by displaying the score with Sweet Alerts, 
+ * Ends game by displaying the score with Sweet Alerts,
  * and gives the user an opportunity to play the game again.
  */
 function gameOver() {
