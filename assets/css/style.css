@@ -27,6 +27,7 @@ button {
 
 button:hover:not([disabled]) {
     border: 2px solid #fa8d62;
+    cursor: pointer;
 }
 
 /* || Typography */
