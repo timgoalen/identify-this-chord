@@ -169,7 +169,7 @@ function gameOver() {
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Play again!'
     }).then((result) => {
-        if (result.isConfirmed) {
+        if (result) {
             startGame();
         }
     });
