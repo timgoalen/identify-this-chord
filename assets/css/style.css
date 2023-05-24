@@ -91,6 +91,11 @@ h2 {
     background-color: #cdf6ff;
 }
 
+#play-btn:active {
+    background-color: #fff;
+    transition: 0.1s all;
+}
+
 /* || Footer */
 
 footer {
