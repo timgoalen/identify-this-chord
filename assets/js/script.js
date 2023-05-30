@@ -1,6 +1,6 @@
 // GLOBAL CONSTANTS
 
-// The array that holds the quiz questions (audio) and answers
+// The array that holds the questions (audio) and answers
 const audioArray = [{
         question: "assets/audio/audio-q-maj.mp3",
         answer: "major"
@@ -20,10 +20,10 @@ const audioArray = [{
     {
         question: "assets/audio/audio-q-min7.mp3",
         answer: "min7"
-    },
+    }
 ];
 
-// Get elements from index.html
+// Gets the elements from index.html
 const playBtn = document.getElementById("play-btn");
 const answerButtons = document.getElementsByClassName("answer-btn");
 const resultsSquares = document.getElementsByClassName("results-squares");
@@ -50,12 +50,12 @@ playBtn.addEventListener("click", function () {
 });
 
 // Retreives user answer
-for (let answerButton of answerButtons) {
+Array.from(answerButtons).forEach(answerButton => {
     answerButton.addEventListener("click", function () {
         submittedAnswer = answerButton.dataset.id;
         submitAnswer();
-    })
-}
+    });
+});
 
 // FUNCTIONS
 
