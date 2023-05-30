@@ -49,7 +49,7 @@ playBtn.addEventListener("click", function () {
     playAudio();
 });
 
-// Retreives user answer
+// Retrieves user answer
 Array.from(answerButtons).forEach(answerButton => {
     answerButton.addEventListener("click", function () {
         submittedAnswer = answerButton.dataset.id;
@@ -125,7 +125,7 @@ function submitAnswer() {
 }
 
 /**
- * Checks user answer against correct answer, modifies the results blocks to show score, and increments the gameProgess. 
+ * Checks user answer against correct answer, modifies the results blocks to show score, and increments the gameProgress. 
  */
 function checkAnswer() {
     gameProgress++;
